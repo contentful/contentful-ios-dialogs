@@ -72,8 +72,7 @@
 #pragma mark - UITextViewDelegate
 
 -(BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)range {
-    CDAWebController* webController = [[CDAWebController alloc] initWithURL:URL];
-    [self.navigationController pushViewController:webController animated:YES];
+    [CDAWebController pushWebControllerForURL:URL toNavigationController:self.navigationController];
     return YES;
 }
 

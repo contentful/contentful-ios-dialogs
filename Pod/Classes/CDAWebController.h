@@ -9,4 +9,7 @@
 
 @interface CDAWebController : TSMiniWebBrowser
 
++(UIViewController*)pushWebControllerForURL:(NSURL*)url
+                     toNavigationController:(UINavigationController*)parent;
+
 @end

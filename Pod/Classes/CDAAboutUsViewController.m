@@ -157,7 +157,7 @@
     switch (indexPath.row) {
         case 0:
             title = NSLocalizedString(@"FAQ", nil);
-            urlString = [NSString stringWithFormat:@"https://support.contentful.com/hc/en-us/?utm_source=%@&utm_medium=iOS&utm_campaign=faq", self.source];
+            urlString = [NSString stringWithFormat:@"https://www.contentful.com/faq/?utm_source=%@&utm_medium=iOS&utm_campaign=faq", self.source];
             break;
         case 1:
             title = NSLocalizedString(@"Contact", nil);
@@ -186,11 +186,9 @@
             return;
         }
     }
-    
-    CDAWebController* webController = [[CDAWebController alloc]
-                                       initWithURL:[NSURL URLWithString:urlString]];
-    webController.title = title;
-    [self.navigationController pushViewController:webController animated:YES];
+
+    UIViewController* controller = [CDAWebController pushWebControllerForURL:[NSURL URLWithString:urlString] toNavigationController:self.navigationController];
+    controller.title = title;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

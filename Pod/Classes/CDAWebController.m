@@ -5,6 +5,8 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
+#import <objc/runtime.h>
+
 #import "CDAWebController.h"
 #import "UIView+Geometry.h"
 
@@ -18,6 +20,24 @@
 #pragma mark -
 
 @implementation CDAWebController
+
++(UIViewController*)pushWebControllerForURL:(NSURL*)url
+                     toNavigationController:(UINavigationController*)parent {
+    Class safariViewController = objc_getClass("SFSafariViewController");
+    UIViewController* controller = nil;
+
+    if (safariViewController) {
+        controller = [[safariViewController alloc] initWithURL:url];
+        [parent pushViewController:controller animated:YES];
+    } else {
+        controller = [[[self class] alloc] initWithURL:url];
+        [parent pushViewController:controller animated:YES];
+    }
+
+    return controller;
+}
+
+#pragma mark -
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];

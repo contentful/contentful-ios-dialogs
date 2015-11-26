@@ -18,10 +18,11 @@ Pod::Spec.new do |s|
                           'Pod/Classes/UIView+Geometry.h'
 
   s.frameworks = 'UIKit'
+  s.weak_framework = 'SafariServices'
   
   s.dependency 'Bypass'
   s.dependency 'CGLMail'
-  s.dependency 'ContentfulDeliveryAPI', '~> 1.4.7'
+  s.dependency 'ContentfulDeliveryAPI', '~> 1.9.0'
   s.dependency 'DDPageControl'
   s.dependency 'TSMiniWebBrowser@dblock'
 end
