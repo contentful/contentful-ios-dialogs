@@ -5,7 +5,7 @@
 //  Copyright (c) 2014 Boris Bügling. All rights reserved.
 //
 
-#import <Bypass/Bypass.h>
+#import <CocoaMarkdown/CocoaMarkdown.h>
 
 #import "CDALicensingViewController.h"
 #import "CDAWebController.h"
@@ -23,12 +23,12 @@
 
 - (void)setMarkdownText:(NSString *)markdownText {
     _markdownText = markdownText;
-    
-    BPDocument* document = [[BPParser new] parse:markdownText];
-    BPAttributedStringConverter* converter = [BPAttributedStringConverter new];
-    converter.displaySettings.quoteFont = [UIFont fontWithName:@"Marion-Italic"
-                                                          size:[UIFont systemFontSize] + 1.0f];
-    NSAttributedString* attributedText = [converter convertDocument:document];
+
+    NSData* data = [markdownText dataUsingEncoding:NSUTF8StringEncoding];
+    CMDocument* document = [[CMDocument alloc] initWithData:data options:nil];
+    CMAttributedStringRenderer* renderer = [[CMAttributedStringRenderer alloc] initWithDocument:document attributes:[CMTextAttributes new]];
+
+    NSAttributedString* attributedText = [renderer render];
     
     self.textView.attributedText = attributedText;
 }

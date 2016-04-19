@@ -1,11 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/contentful/CocoaPodsSpecs'
 
 inhibit_all_warnings!
 
-target 'contentful-ios-dialogs', :exclusive => true do
+target 'contentful-ios-dialogs' do
   pod "ContentfulDialogs", :path => "../"
+
+  target 'Tests' do
+    inherit! :search_paths
+  end
 end
 
-target 'Tests', :exclusive => true do
-  pod "ContentfulDialogs", :path => "../"
-end
