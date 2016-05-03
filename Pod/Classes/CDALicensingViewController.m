@@ -25,7 +25,7 @@
     _markdownText = markdownText;
 
     NSData* data = [markdownText dataUsingEncoding:NSUTF8StringEncoding];
-    CMDocument* document = [[CMDocument alloc] initWithData:data options:nil];
+    CMDocument* document = [[CMDocument alloc] initWithData:data options:0];
     CMAttributedStringRenderer* renderer = [[CMAttributedStringRenderer alloc] initWithDocument:document attributes:[CMTextAttributes new]];
 
     NSAttributedString* attributedText = [renderer render];
