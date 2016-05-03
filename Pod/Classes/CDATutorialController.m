@@ -110,7 +110,7 @@
 #pragma mark - Actions
 
 -(void)playVideo {
-    NSURL* movieURL = [[NSBundle mainBundle] URLForResource:@"contentful-video" withExtension:@"mp4"];
+    NSURL* movieURL = [[NSBundle bundleForClass:self.class] URLForResource:@"contentful-video" withExtension:@"mp4"];
     MPMoviePlayerViewController* moviePlayer = [[MPMoviePlayerViewController alloc] initWithContentURL:movieURL];
     [self presentMoviePlayerViewControllerAnimated:moviePlayer];
 }

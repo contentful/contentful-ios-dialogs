@@ -68,7 +68,7 @@
 }
 
 -(void)setupTab {
-    self.tabBarItem.image = [UIImage imageNamed:@"about"];
+    self.tabBarItem.image = [UIImage imageNamed:@"about" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
     self.title = NSLocalizedString(@"About Us", nil);
 }
 
@@ -223,8 +223,8 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, tableView.width, 150.0)];
     self.headerView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil]];
     logo.frame = CGRectMake((self.headerView.width - 70.0) / 2, 10.0, 70.0, 70.0);
     [self.headerView addSubview:logo];
     
