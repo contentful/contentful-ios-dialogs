@@ -29,7 +29,7 @@ class LicensesViewController: UIViewController, UITextViewDelegate {
         // Strip extension.
         let pathToAcknowledgements = Bundle.main.path(forResource: fileName, ofType: "")!
         let acknowledgements = try! String(contentsOfFile: pathToAcknowledgements, encoding: .utf8)
-        return acknowledgements
+        return licenses + acknowledgements
     }
 
     override func loadView() {
