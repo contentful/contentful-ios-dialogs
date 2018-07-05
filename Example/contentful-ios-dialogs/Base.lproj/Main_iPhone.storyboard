@@ -1,28 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tNC-CH-1lh">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="tNC-CH-1lh">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--About Us View Controller-->
-        <scene sceneID="Z1u-6j-sXB">
+        <scene sceneID="RGJ-xz-u1w">
             <objects>
-                <tableViewController id="CQA-pO-dl1" customClass="CDAAboutUsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yOq-g9-J5i">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                <viewController id="o7h-am-2sJ" customClass="AboutUsViewController" customModule="ContentfulDialogs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S1j-gK-WXv"/>
+                        <viewControllerLayoutGuide type="bottom" id="hCn-eV-G60"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sPQ-Hi-sGG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="CQA-pO-dl1" id="QZM-XM-JRe"/>
-                            <outlet property="delegate" destination="CQA-pO-dl1" id="ub2-Am-AeL"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="1qn-nU-A2T"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5fG-Lj-qYJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="16m-gD-zhR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teZ-tU-3CK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1283" y="265"/>
+            <point key="canvasLocation" x="1286" y="265"/>
         </scene>
         <!--Item-->
         <scene sceneID="5VD-8R-Hcg">
@@ -31,12 +35,12 @@
                     <tabBarItem key="tabBarItem" title="Item" id="EQW-Ld-odk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qf8-oJ-Go5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="CQA-pO-dl1" kind="relationship" relationship="rootViewController" id="fiu-nV-bab"/>
+                        <segue destination="o7h-am-2sJ" kind="relationship" relationship="rootViewController" id="Mr1-2i-gdc"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEb-jR-bMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,8 +54,9 @@
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6gi-lf-b1Z">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="N5M-aZ-DnZ" kind="relationship" relationship="viewControllers" id="jQt-Fo-V8U"/>
@@ -62,9 +67,4 @@
             <point key="canvasLocation" x="219" y="265"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
