@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ContentfulDialogs"
-  s.version          = "2"
+  s.version          = "2.0.0"
   s.summary          = 'Informational dialogs for iOS applications, like "About Us", licensing information and a quick overview of the product.'
   s.homepage         = "https://github.com/contentful/contentful-ios-dialogs"
   s.license          = 'MIT'
