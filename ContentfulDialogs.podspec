@@ -10,16 +10,17 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/contentful/contentful-ios-dialogs.git",
                          :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/contentful'
-  
-  s.ios.deployment_target = '10.0'
+  s.swift_version = '4.1'
+
+
+  s.platform = :ios, '10.0'
 
   s.requires_arc = true
 
-  s.resources = 'Pod/Assets/*.png'
-  s.source_files = 'Pod/Classes/*.swift'
+  s.resources       = 'Pod/Assets/*.png'
+  s.source_files    = 'Pod/Classes/*.swift'
 
-  s.frameworks = 'UIKit'
-  s.weak_framework = 'SafariServices'
+  s.frameworks = 'UIKit', 'SafariServices'
   
   s.dependency 'markymark'
 end

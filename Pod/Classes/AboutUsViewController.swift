@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SafariServices
 
-class AboutUsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+public class AboutUsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var tableView: UITableView!
     static let cellIdentifier = String(describing: AboutUsViewController.self)
@@ -17,19 +17,19 @@ class AboutUsViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: UIViewController
 
-    init() {
+    public init() {
         source = Bundle.main.infoDictionary!["CFBundleDisplayName"] as! String
         super.init(nibName: nil, bundle: nil)
         tabBarItem.image = UIImage(named: "about", in: Bundle(for: AboutUsViewController.self), compatibleWith: nil)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         source = Bundle.main.infoDictionary!["CFBundleDisplayName"] as! String
         super.init(coder: aDecoder)
         tabBarItem.image = UIImage(named: "about", in: Bundle(for: AboutUsViewController.self), compatibleWith: nil)
     }
 
-    override func loadView() {
+    public override func loadView() {
         tableView = UITableView(frame: .zero)
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: AboutUsViewController.cellIdentifier)
@@ -38,7 +38,7 @@ class AboutUsViewController: UIViewController, UITableViewDataSource, UITableVie
         view = tableView
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .white
         tableView.dataSource = self
@@ -51,7 +51,7 @@ class AboutUsViewController: UIViewController, UITableViewDataSource, UITableVie
         if #available(iOS 11.0, *) {
             let config = SFSafariViewController.Configuration()
             config.barCollapsingEnabled = true
-            vc = SFSafariViewController(url: url, configuration: config)
+            vc = SFSafariViewController(url: url, configuration: config)    
         } else {
             // Fallback on earlier versions
             vc = SFSafariViewController(url: url)
@@ -61,14 +61,14 @@ class AboutUsViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: UITableViewDelegate
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let utm_source = source.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         switch indexPath.row {
         case 0:
-            let urlString = "https://www.contentful.com/faq/?utm_source=\(source)&utm_medium=iOS&utm_campaign=faq"
+            let urlString = "https://www.contentful.com/faq/?utm_source=\(utm_source)&utm_medium=iOS&utm_campaign=faq"
             pushWebViewController(title: "FAQ", urlString: urlString)
         case 1:
-            let urlString = "https://support.contentful.com/hc/en-us/requests/new/?utm_source=\(source)&utm_medium=iOS&utm_campaign=feedback"
+            let urlString = "https://support.contentful.com/hc/en-us/requests/new/?utm_source=\(utm_source)&utm_medium=iOS&utm_campaign=feedback"
             pushWebViewController(title: "Contentful support", urlString: urlString)
         case 2:
             let licenses = LicensesViewController()
@@ -80,11 +80,11 @@ class AboutUsViewController: UIViewController, UITableViewDataSource, UITableVie
 
     // MARK: UITableViewDataSource
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AboutUsViewController.cellIdentifier)!
 
         switch indexPath.row {
@@ -100,11 +100,11 @@ class AboutUsViewController: UIViewController, UITableViewDataSource, UITableVie
         return cell
     }
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 150.0
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 150.0))
         view.backgroundColor = .groupTableViewBackground
         let logo = UIImage(named: "logo", in: Bundle(for: AboutUsViewController.self), compatibleWith: nil)!

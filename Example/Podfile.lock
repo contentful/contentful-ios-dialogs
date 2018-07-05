@@ -1,5 +1,5 @@
 PODS:
-  - ContentfulDialogs (2):
+  - ContentfulDialogs (2.0.0):
     - markymark
   - markymark (7.2.2)
 
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ContentfulDialogs: 0ed1cb97cc42ae45db36e68cbffef3f4d40258d0
+  ContentfulDialogs: 9adf5015ced1acc17a8d448a5d731db9b1c0ba29
   markymark: 74f98d43f4d655178f80df6efa7023b4a9e9f0f5
 
-PODFILE CHECKSUM: 92f62007e0180330735f4db36203356f8d71111a
+PODFILE CHECKSUM: 354d081fb90793a273469709394cf92699f99eda
 
 COCOAPODS: 1.5.3
